@@ -1,4 +1,4 @@
-#GPA Calculator
+# GPA Calculator
 
 ## Features
 
