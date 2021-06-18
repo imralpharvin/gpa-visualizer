@@ -4,7 +4,7 @@ import GPAConverterForm from "./GPAConverterForm";
 const GPAConverter = () => {
   return (
     <>
-      <h1>GPA Converter</h1>
+      <h1>UoG GPA Visualizer</h1>
       <p>
         This tool allows UoG Students to view and calculate their WebAdvisor
         Unofficial Transcipt by year and semester and converts percentage GPA to

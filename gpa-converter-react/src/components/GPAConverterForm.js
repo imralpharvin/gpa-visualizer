@@ -10,16 +10,18 @@ const GPAConverterForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    let convertedTranscript;
     if (rawTranscript) {
       const preTranscript = parseTranscript(rawTranscript);
-      const convertedTranscript = convertTranscript(preTranscript);
+      convertedTranscript = convertTranscript(preTranscript);
       setTranscript(convertedTranscript);
       setRawTranscript("");
       console.log(convertedTranscript);
     } else {
       console.log("empty value");
     }
-    if (transcript.length === 0) {
+    if (convertedTranscript === undefined || convertedTranscript.length === 0) {
       alert(
         "No courses. Please copy your transcript from Adobe Acrobat Reader DC or Google Chrome PDF Viewer."
       );
@@ -45,10 +47,10 @@ const GPAConverterForm = () => {
               DC or Google Chrome as your PDF viewer !!!!
             </li>
             <li>Ctrl + V (Paste) on the text area field above.</li>
-            <li>Press Convert button.</li>
+            <li>Press Visualize button.</li>
           </ol>
           <button className="btn" type="submit">
-            Convert
+            Visualize
           </button>
         </form>
         {transcript.length === 0 ? (

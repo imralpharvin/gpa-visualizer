@@ -1,10 +1,10 @@
 import React from "react";
-import GPAConverter from "./components/GPAConverter";
+import GPAVisualizer from "./components/GPAVisualizer";
 
 const App = () => {
   return (
     <div className="container">
-      <GPAConverter />
+      <GPAVisualizer />
     </div>
   );
 };
