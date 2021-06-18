@@ -36,7 +36,8 @@ const GPAConverterForm = () => {
             <li>Download your unofficial transcript pdf from WebAdvisor.</li>
             <li>
               Ctrl + A (Select All) then Ctrl + C (Copy) from your unofficial
-              transcript pdf.
+              transcript pdf. !!!! Make sure you are using Adobe Acrobat Reader
+              DC or Google Chrome as your PDF viewer !!!!
             </li>
             <li>Ctrl + V (Paste) on the text area field above.</li>
             <li>Press Convert button.</li>

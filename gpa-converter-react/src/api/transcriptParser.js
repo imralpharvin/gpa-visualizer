@@ -10,7 +10,8 @@ const parseTranscript = (transcriptText) => {
 
     if (
       lineSplit.length >= 2 &&
-      lineSplit[lineSplit.length - 2].includes(".")
+      lineSplit[lineSplit.length - 2].includes(".") &&
+      lineSplit[lineSplit.length - 1].length === 3
     ) {
       console.log(lineSplit);
       let courseText = lineSplit;
