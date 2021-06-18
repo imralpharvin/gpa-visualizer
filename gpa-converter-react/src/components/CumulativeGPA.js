@@ -1,5 +1,5 @@
 import AnnualGPA from "./AnnualGPA";
-import GPATable from "./GPATable";
+
 const {
   calculateAverageFourScaleGPA,
   calculateAveragePercentageGPA,

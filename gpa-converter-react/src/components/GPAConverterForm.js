@@ -19,6 +19,11 @@ const GPAConverterForm = () => {
     } else {
       console.log("empty value");
     }
+    if (transcript.length === 0) {
+      alert(
+        "No courses. Please copy your transcript from Adobe Acrobat Reader DC or Google Chrome PDF Viewer."
+      );
+    }
   };
 
   return (

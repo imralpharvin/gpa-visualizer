@@ -1,6 +1,3 @@
-const { parseTranscript } = require("./transcriptParser");
-const { convertTranscript } = require("./gpaConverter");
-
 const calculateTotalEarnedCredits = (transcript) => {
   let totalEarnedCredits = 0;
   for (let i = 0; i < transcript.length; i++) {

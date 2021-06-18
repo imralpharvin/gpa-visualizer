@@ -1,5 +1,4 @@
 import React from "react";
-import GPATable from "./GPATable";
 import SemesterGPA from "./SemesterGPA";
 const {
   calculateAverageFourScaleGPA,
