@@ -7,5 +7,4 @@
 
 ## TODO
 
-- File Uploader
-- Parse pdf
+- Download PDF
