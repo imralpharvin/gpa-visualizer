@@ -68,7 +68,7 @@ const GPAConverterForm = () => {
 
   return (
     <>
-      <Card className='gpaForm' style={{ width: '18rem' }}>
+      <Card className='gpaForm'>
         <Form onSubmit={onSubmit}>
           <InputGroup style={{ display: 'block' }}>
             <input
@@ -84,6 +84,7 @@ const GPAConverterForm = () => {
             >
               {filename}
             </label>
+
             <Button as='input' type='submit' value='Visualize' />
           </InputGroup>
         </Form>
