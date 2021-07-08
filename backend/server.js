@@ -2,9 +2,11 @@ const express = require('express');
 const fileUpload = require('express-fileupload');
 const fs = require('fs');
 const pdfparse = require('pdf-parse');
+const cors = require('cors');
 
 const app = express();
 app.use(fileUpload());
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Hello World');
