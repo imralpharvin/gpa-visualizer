@@ -1,16 +1,16 @@
 const parseTranscript = (transcriptText) => {
-  let transcriptArray = transcriptText.split("\n");
-  //console.log("array " + transcriptArray);
+  let transcriptArray = transcriptText.split('\n');
+  console.log('arrayARRAY ' + transcriptArray);
   let transcript = [];
 
   for (let i = 0; i < transcriptArray.length; i++) {
     let lineSplit = [];
-    lineSplit = transcriptArray[i].split(" ");
-    //console.log(lineSplit);
+    lineSplit = transcriptArray[i].split(' ');
+    lineSplit = lineSplit.filter((line) => line !== '');
 
     if (
       lineSplit.length >= 2 &&
-      lineSplit[lineSplit.length - 2].includes(".") &&
+      lineSplit[lineSplit.length - 2].includes('.') &&
       (lineSplit[lineSplit.length - 1].length === 3 ||
         lineSplit[lineSplit.length - 1].length === 4)
     ) {
