@@ -27,11 +27,15 @@ const GPAConverterForm = () => {
     formData.append('file', file);
 
     try {
-      const res = await axios.post('/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      const res = await axios.post(
+        'https://gpa-visualizer.herokuapp.com/upload',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      );
       console.log(res);
       const rawTranscript = res.data.data;
       console.log('THIS DATA: ' + rawTranscript);
