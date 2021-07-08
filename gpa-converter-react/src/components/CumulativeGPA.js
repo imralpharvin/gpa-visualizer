@@ -87,7 +87,7 @@ const CumulativeGPA = ({ transcript }) => {
           <h3>Cumulative GPA (4.0): {gpa}</h3>
         </div>
       </div>
-      <Button onClick={handleonClick}>Generate PDF</Button>
+      {/* <Button onClick={handleonClick}>Generate PDF</Button> */}
     </div>
   );
 };
