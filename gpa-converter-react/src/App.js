@@ -1,12 +1,9 @@
-import React from "react";
-import Container from "react-bootstrap/Container"
-import GPAVisualizer from "./components/GPAVisualizer";
-
-
+import React from 'react';
+import GPAVisualizer from './components/GPAVisualizer';
 
 const App = () => {
   return (
-    <div className = "container">
+    <div className='container'>
       <GPAVisualizer />
     </div>
   );

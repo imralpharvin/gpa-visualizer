@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 const GPATable = ({ courses }) => {
   return (
     <>
       {courses.length === 0 ? (
-        ""
+        ''
       ) : (
         <table>
           <thead>
@@ -16,20 +16,21 @@ const GPATable = ({ courses }) => {
             </tr>
           </thead>
           <tbody>
-            {courses.map((course) => {
+            {courses.map((course, index) => {
               const {
                 courseCode,
                 grade,
                 credit,
                 isGradePercentage,
                 fourScale,
+                term,
               } = course;
 
               return (
-                <tr key={courseCode}>
+                <tr key={courseCode + term + index}>
                   <td>{courseCode}</td>
                   <td>{grade}</td>
-                  <td>{isGradePercentage ? fourScale.toFixed(1) : "-"}</td>
+                  <td>{isGradePercentage ? fourScale.toFixed(1) : '-'}</td>
                   <td>{credit}</td>
                 </tr>
               );

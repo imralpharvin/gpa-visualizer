@@ -1,7 +1,4 @@
 import AnnualGPA from './AnnualGPA';
-import jsPDF from 'jspdf';
-import Button from 'react-bootstrap/Button';
-import html2pdf from 'html2pdf.js';
 
 const {
   calculateAverageFourScaleGPA,
@@ -29,33 +26,34 @@ const CumulativeGPA = ({ transcript }) => {
   const schoolYears = [
     ...new Set(semesters.map((semester) => getSchoolYear(semester))),
   ];
+  schoolYears.sort();
 
   console.log(semesters);
   console.log(schoolYears);
 
-  const handleonClick = () => {
-    let element = document.getElementById('gpacontent');
-    element.scrollIntoView();
-    var opt = {
-      margin: 0.1,
-      filename: 'myfile.pdf',
-      image: { type: 'png', quality: 0.98 },
-      html2canvas: {
-        scale: 2,
-        letterRendering: true,
-      },
-      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
-    };
-    var worker = html2pdf().from(element).set(opt).save();
-    // let doc = new jsPDF('p', 'pt', 'a4');
-    // doc.html(
-    //   document.getElementById('gpacontent', {
-    //     callback: function (doc) {
-    //       doc.save('mypdf.pdf');
-    //     },
-    //   })
-    // );
-  };
+  // const handleonClick = () => {
+  //   let element = document.getElementById('gpacontent');
+  //   element.scrollIntoView();
+  //   var opt = {
+  //     margin: 0.1,
+  //     filename: 'myfile.pdf',
+  //     image: { type: 'png', quality: 0.98 },
+  //     html2canvas: {
+  //       scale: 2,
+  //       letterRendering: true,
+  //     },
+  //     jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+  //   };
+  //   var worker = html2pdf().from(element).set(opt).save();
+  //   // let doc = new jsPDF('p', 'pt', 'a4');
+  //   // doc.html(
+  //   //   document.getElementById('gpacontent', {
+  //   //     callback: function (doc) {
+  //   //       doc.save('mypdf.pdf');
+  //   //     },
+  //   //   })
+  //   // );
+  // };
 
   return (
     <div className='cumulativeGPA' id='cumulativeGPA'>

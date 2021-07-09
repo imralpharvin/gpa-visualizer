@@ -1,27 +1,33 @@
-import React from "react";
-import GPATable from "./GPATable";
+import React from 'react';
+import GPATable from './GPATable';
 const {
   calculateAverageFourScaleGPA,
   calculateAveragePercentageGPA,
   calculateTotalEarnedCredits,
-} = require("../api/gpaCalculator");
+} = require('../api/gpaCalculator');
 
 const SemesterGPA = ({ courses }) => {
+  const totalEarnedCredits = calculateTotalEarnedCredits(courses).toFixed(2);
+  const averagePercentageGPA =
+    calculateAveragePercentageGPA(courses).toFixed(2);
+  const averageFourScaleGPA = calculateAverageFourScaleGPA(courses).toFixed(2);
   return (
     <>
       {courses.length === 0 ? (
-        "No Courses"
+        'No Courses'
       ) : (
-        <div className="semesterGPA">
+        <div className='semesterGPA'>
           <GPATable courses={courses} />
           <hr />
-          <div style={{ textAlign: "right" }}>
-            <h5>Credits: {calculateTotalEarnedCredits(courses).toFixed(2)}</h5>
+          <div style={{ textAlign: 'right' }}>
+            <h5>Credits: {totalEarnedCredits}</h5>
             <h5>
-              GPA (%): {calculateAveragePercentageGPA(courses).toFixed(2)}
+              GPA (%):{' '}
+              {!isNaN(averagePercentageGPA) ? averagePercentageGPA : '-'}
             </h5>
             <h5>
-              GPA (4.0): {calculateAverageFourScaleGPA(courses).toFixed(2)}
+              GPA (4.0):{' '}
+              {!isNaN(averageFourScaleGPA) ? averageFourScaleGPA : '-'}
             </h5>
           </div>
         </div>

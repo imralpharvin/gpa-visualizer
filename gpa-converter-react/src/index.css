@@ -19,6 +19,27 @@ body {
 h1 {
   font-size: 4rem !important;
 }
+h2 {
+  font-size: 2.5rem !important;
+}
+h3 {
+  font-size: 1.75rem !important;
+}
+h4 {
+  font-size: 1rem !important;
+}
+h5 {
+  font-size: 1rem !important;
+}
+body {
+  font-size: 1rem !important;
+}
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1 !important;
+}
 
 .gpaForm {
   background: var(--clr-white);

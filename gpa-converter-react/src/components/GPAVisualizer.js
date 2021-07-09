@@ -1,6 +1,5 @@
-import React from "react";
-import GPAConverterForm from "./GPAConverterForm";
-
+import React from 'react';
+import GPAConverterForm from './GPAConverterForm';
 
 const GPAConverter = () => {
   return (
@@ -11,20 +10,25 @@ const GPAConverter = () => {
         Unofficial Transcipt by year and semester and converts percentage GPA to
         4.0 scale GPA. (
         <a
-          href="https://www.uoguelph.ca/uaic/faq/grades/how-do-i-calculate-gpa-using-my-guelph-grades"
-          target="_blank"
+          href='https://www.uoguelph.ca/uaic/faq/grades/how-do-i-calculate-gpa-using-my-guelph-grades'
+          target='_blank'
+          rel='noopener noreferrer'
         >
           See Conversion Chart
         </a>
         )
       </p>
-          
+
       <GPAConverterForm />
       <hr />
       <p>
         Created by
-        <a href="https://www.ralphdc.com" target="_blank">
-          {" "}
+        <a
+          href='https://www.ralphdc.com'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          {' '}
           Ralph Arvin De Castro
         </a>
         .
