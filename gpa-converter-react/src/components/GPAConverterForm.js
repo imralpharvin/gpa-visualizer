@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CumulativeGPA from './CumulativeGPA';
 import Card from 'react-bootstrap/Card';
 import Alert from 'react-bootstrap/Alert';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 const { parseTranscript } = require('../api/transcriptParser');
 const { convertTranscript } = require('../api/gpaConverter');
@@ -19,6 +20,8 @@ const GPAConverterForm = () => {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [loadingPercentage, setLoadingPercentage] = useState(0);
+  const [animated, setAnimated] = useState(true);
 
   const onChange = (e) => {
     setFile(e.target.files[0]);
@@ -28,6 +31,10 @@ const GPAConverterForm = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     console.log('fileName: ' + filename);
+    setError(false);
+    setSuccess(false);
+    setLoadingPercentage(10);
+    setAnimated(true);
 
     if (
       filename === null ||
@@ -37,10 +44,13 @@ const GPAConverterForm = () => {
     ) {
       setError(true);
       setErrorMessage('No file uploaded. Please choose a file.');
+      setLoadingPercentage(0);
     } else if (filename.split('.').pop() !== 'pdf') {
       setError(true);
       setErrorMessage('Not a pdf file. Please choose a pdf file');
+      setLoadingPercentage(0);
     } else {
+      setLoadingPercentage(30);
       const formData = new FormData();
       formData.append('file', file);
 
@@ -54,6 +64,7 @@ const GPAConverterForm = () => {
             },
           }
         );
+        setLoadingPercentage(50);
         console.log(res);
         const pdfText = res.data.data;
         console.log('THIS DATA: ' + pdfText);
@@ -71,25 +82,31 @@ const GPAConverterForm = () => {
             setError(true);
             setSuccess(false);
             setErrorMessage('No courses detected in pdf file.');
+            setLoadingPercentage(0);
           } else {
             setError(false);
             setSuccess(true);
             setErrorMessage('');
+            setLoadingPercentage(100);
+            setAnimated(false);
           }
         } else {
           setError(true);
           setSuccess(false);
           setErrorMessage('No content detected in pdf file.');
+          setLoadingPercentage(0);
         }
       } catch (err) {
         if (err.response.status === 500) {
           setError(true);
           setSuccess(false);
           setErrorMessage('There was a problem with the server');
+          setLoadingPercentage(0);
           console.log('There was a problem with the server');
         } else {
           setError(true);
           setSuccess(false);
+          setLoadingPercentage(0);
           setErrorMessage(err.response.data.msg);
           console.log(err.response.data.msg);
         }
@@ -101,10 +118,12 @@ const GPAConverterForm = () => {
     setError(false);
     setSuccess(false);
     setErrorMessage('');
+    setLoadingPercentage(0);
   };
 
   const onSuccessClose = () => {
     setSuccess(false);
+    setLoadingPercentage(0);
   };
 
   return (
@@ -152,8 +171,15 @@ const GPAConverterForm = () => {
               htmlFor='customFile'
             >
               {filename}
-            </label>
-
+            </label>{' '}
+            <>
+              <br />
+            </>
+            <ProgressBar
+              striped={true}
+              animated={animated}
+              now={loadingPercentage}
+            />
             <Button as='input' type='submit' value='Visualize' />
           </InputGroup>
         </Form>
