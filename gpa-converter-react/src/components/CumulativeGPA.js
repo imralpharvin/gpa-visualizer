@@ -1,4 +1,5 @@
 import AnnualGPA from './AnnualGPA';
+import GPAChart from './GPAChart';
 
 const {
   calculateAverageFourScaleGPA,
@@ -86,6 +87,8 @@ const CumulativeGPA = ({ transcript }) => {
         </div>
       </div>
       {/* <Button onClick={handleonClick}>Generate PDF</Button> */}
+      <hr />
+      <GPAChart transcript={transcript} />
     </div>
   );
 };
