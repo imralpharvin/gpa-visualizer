@@ -128,89 +128,91 @@ const GPAConverterForm = () => {
 
   return (
     <>
-      <Card className='gpaForm'>
-        {error ? (
-          <Alert
-            variant='danger'
-            style={{ textAlign: 'left' }}
-            onClose={onErrorClose}
-            dismissible
-          >
-            <Alert.Heading>Error</Alert.Heading>
-            <hr />
-            <p>{errorMessage}</p>
-          </Alert>
-        ) : (
-          ''
-        )}
-        {success ? (
-          <Alert
-            variant='success'
-            style={{ textAlign: 'left' }}
-            onClose={onSuccessClose}
-            dismissible
-          >
-            <Alert.Heading>Success!</Alert.Heading>
-            <hr />
-            <p>Scroll down to see you courses.</p>
-          </Alert>
-        ) : (
-          ''
-        )}
-        <Form onSubmit={onSubmit}>
-          <InputGroup style={{ display: 'block' }}>
-            <input
-              type='file'
-              className='custom-file-input'
-              id='customFile'
-              onChange={onChange}
-            />
-            <label
-              className='custom-file-label'
+      <div className='no-print'>
+        <Card className='gpaForm'>
+          {error ? (
+            <Alert
+              variant='danger'
               style={{ textAlign: 'left' }}
-              htmlFor='customFile'
+              onClose={onErrorClose}
+              dismissible
             >
-              {filename}
-            </label>{' '}
-            <>
-              <br />
-            </>
-            <ProgressBar
-              striped={true}
-              animated={animated}
-              now={loadingPercentage}
-            />
-            <Button as='input' type='submit' value='Visualize' />
-          </InputGroup>
-        </Form>
-        <hr />
-        <h4>Instructions:</h4>
-        <ol>
-          <li>
-            Download your unofficial transcript pdf from{' '}
-            <a
-              href='https://webadvisor.uoguelph.ca/'
-              target='_blank'
-              rel='noopener noreferrer'
-              download
+              <Alert.Heading>Error</Alert.Heading>
+              <hr />
+              <p>{errorMessage}</p>
+            </Alert>
+          ) : (
+            ''
+          )}
+          {success ? (
+            <Alert
+              variant='success'
+              style={{ textAlign: 'left' }}
+              onClose={onSuccessClose}
+              dismissible
             >
-              WebAdvisor
-            </a>
-            . A{' '}
-            <a
-              href='uploads/sample.pdf'
-              target='_blank'
-              rel='noopener noreferrer'
-              download
-            >
-              sample transcript
-            </a>{' '}
-            is provided for demonstration purposes.
-          </li>
-          <li>Browse and select your file. </li>
-          <li>Press Visualize button.</li>
-        </ol>
-      </Card>
+              <Alert.Heading>Success!</Alert.Heading>
+              <hr />
+              <p>Scroll down to see you courses.</p>
+            </Alert>
+          ) : (
+            ''
+          )}
+          <Form onSubmit={onSubmit}>
+            <InputGroup style={{ display: 'block' }}>
+              <input
+                type='file'
+                className='custom-file-input'
+                id='customFile'
+                onChange={onChange}
+              />
+              <label
+                className='custom-file-label'
+                style={{ textAlign: 'left' }}
+                htmlFor='customFile'
+              >
+                {filename}
+              </label>{' '}
+              <>
+                <br />
+              </>
+              <ProgressBar
+                striped={true}
+                animated={animated}
+                now={loadingPercentage}
+              />
+              <Button as='input' type='submit' value='Visualize' />
+            </InputGroup>
+          </Form>
+          <hr />
+          <h4>Instructions:</h4>
+          <ol>
+            <li>
+              Download your unofficial transcript pdf from{' '}
+              <a
+                href='https://webadvisor.uoguelph.ca/'
+                target='_blank'
+                rel='noopener noreferrer'
+                download
+              >
+                WebAdvisor
+              </a>
+              . A{' '}
+              <a
+                href='uploads/sample.pdf'
+                target='_blank'
+                rel='noopener noreferrer'
+                download
+              >
+                sample transcript
+              </a>{' '}
+              is provided for demonstration purposes.
+            </li>
+            <li>Browse and select your file. </li>
+            <li>Press Visualize button.</li>
+          </ol>
+        </Card>
+      </div>
       {transcript.length === 0 ? '' : <CumulativeGPA transcript={transcript} />}
     </>
   );
